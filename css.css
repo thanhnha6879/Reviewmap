@@ -1,0 +1,1197 @@
+/* General */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* Container */
+.container {
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Wrapper để căn giữa header + mobile-menu */
+.header-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+}
+
+/* Header */
+header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Navbar - Desktop */
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar nav ul li {
+  margin-left: 25px;
+}
+
+.navbar nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+  font-size: 16px;
+}
+
+.navbar nav ul li a:hover {
+  color: #7FE25B;
+}
+
+.navbar nav ul li i {
+  margin-right: 8px;
+  font-size: 18px;
+  color: #24A6DF;
+}
+
+/* Icons */
+.menu-icon,
+.chat-icon {
+  display: none;
+  font-size: 24px;
+  color: #24A6DF;
+  cursor: pointer;
+}
+
+/* Heading */
+.h2 h2 {
+  text-align: center;
+  font-size: 32px;
+  color: black !important;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 992px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  .navbar nav ul li {
+    margin-left: 15px;
+  }
+
+  .navbar nav ul li a {
+    font-size: 10px;
+  }
+
+  .logo {
+    margin-right: 0;
+    justify-content: center;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  .h2 h2 {
+    font-size: 24px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  header {
+    justify-content: center;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+  }
+
+  .chat-icon {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+  }
+}
+/* Mobile Menu */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 7.5%;
+  left: 0;
+  width: 58%; /* Chiếm 80% chiều ngang */
+  height: 100vh;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-menu.show {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu li {
+  padding: 12px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  animation: fadeSlide 0.4s ease forwards;
+}
+
+.mobile-menu li:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu li a {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.mobile-menu li a i {
+  margin-right: 12px;
+  font-size: 20px;
+  color: #24A6DF;
+  width: 24px;
+  text-align: center;
+}
+
+/* Menu Item Animation */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.mobile-menu li:hover {
+  color: #24A6DF; /* Màu chữ khi hover */
+  background-color: #f4faff; /* Màu nền khi hover */
+  transform: translateX(4px); /* Hiệu ứng trượt nhẹ sang phải */
+  transition: all 0.3s ease;
+}
+.mobile-menu li:hover i {
+  color: #1a8ecb;
+}
+
+
+
+/* Banner Section */
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-img {
+  position: relative;
+  width: 100%;
+}
+
+.banner-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Banner Button */
+.banner-btn {
+  position: absolute;
+  bottom: 5%;
+  left: 8%;
+  background-color: #24A6DF;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: clamp(14px, 2vw, 18px);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+.banner-btn a{
+  text-decoration: none;
+  color: white;
+}
+.banner-btn:hover {
+  background-color: #0088cc;
+}
+
+/* Responsive Banner Button */
+@media (max-width: 992px) {
+  .banner-btn {
+    left: 5%;
+    padding: 8px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-btn {
+    left: 20%;
+    transform: translateX(-50%);
+    padding: 8px 18px;
+    font-size: 12px;
+    bottom: 4%;
+  }
+}
+
+.benefits-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.benefits-text {
+  padding: 20px;
+}
+
+.benefits-text h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.benefits-text h3 {
+  font-size: clamp(18px, 3vw, 22px);
+  font-weight: normal;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  margin-bottom: 12px;
+  font-size: clamp(14px, 2.5vw, 16px);
+  color: #333;
+  position: relative;
+  padding-left: 25px;
+  line-height: 1.6;
+}
+
+.benefits-list li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #7FE25B;
+  font-size: 16px;
+}
+
+.benefits-list li a {
+  padding: 5px;
+}
+
+.benefits-image {
+  padding: 20px;
+  text-align: center;
+}
+
+.benefits-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 40px 20px 0;
+  object-fit: cover;
+}
+
+@media (max-width: 320px) {
+  .benefits-container {
+    display: block;
+  }
+
+  .benefits-text h2,
+  .benefits-text h3,
+  .benefits-list li {
+    font-size: 16px;
+  }
+
+  .benefits-image img {
+    margin: 20px 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-container {
+    display: block;
+  }
+
+  .benefits-image img {
+    margin-top: 20px;
+  }
+
+  .benefits-text h2 {
+    font-size: 24px;
+  }
+
+  .benefits-text h3 {
+    font-size: 18px;
+  }
+
+  .benefits-list li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefits-text h2,
+  .benefits-text h3,
+  .benefits-list li {
+    font-size: 16px;
+  }
+
+  .benefits-image img {
+    margin: 15px 10px 0;
+  }
+}
+.process-section {
+    text-align: center;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.process-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.process-section p.subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Process Steps - sử dụng grid layout thay cho flexbox */
+.process-step {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Auto layout */
+    gap: 20px;
+    justify-items: center; /* Căn giữa các phần tử */
+}
+
+.process-step-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.process-step-header {
+    margin-bottom: 20px;
+}
+
+.process-step-number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #7FE25B;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.process-step-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    vertical-align: middle;
+}
+
+.process-step-description {
+    font-size: 17px;
+    color: #333;
+    line-height: 1.7;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.process-step-image {
+    text-align: center;
+}
+
+.process-step-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Reverse layout */
+/* .process-step.reverse {
+    flex-direction: row-reverse;
+} */
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+    .process-step {
+        grid-template-columns: 1fr; /* Một cột trên màn hình nhỏ */
+        text-align: center;
+    }
+
+    .process-step-content,
+    .process-step-image {
+        text-align: center;
+    }
+
+    .process-step-header {
+        text-align: center;
+    }
+
+    /* Giảm kích thước font cho màn hình nhỏ hơn */
+    .process-step-title {
+        font-size: 24px;
+    }
+
+    .process-step-number {
+        font-size: 24px;
+    }
+
+    .process-step-description {
+        font-size: 16px;
+    }
+}
+
+/* Mobile-First (dưới 768px) */
+@media (max-width: 768px) {
+    .process-step {
+        grid-template-columns: 1fr; /* Một cột */
+        gap: 15px;
+    }
+
+    .process-step-content,
+    .process-step-image {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .process-step-title,
+    .process-step-number {
+        font-size: 22px;
+    }
+
+    .process-step-description {
+        font-size: 14px;
+    }
+}
+
+/* Pricing Section */
+.pricing-main {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.pricing-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+}
+
+.pricing-header {
+  background: #24A6DF;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  font-weight: bold;
+  font-size: clamp(18px, 2.5vw, 22px);
+}
+
+.pricing-header.red {
+  background: #7FE25B;
+}
+
+.pricing-price {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: bold;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.pricing-note {
+  font-size: clamp(12px, 1.5vw, 14px);
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+.pricing-body {
+  padding: 20px;
+  flex: 1;
+}
+
+.pricing-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-body ul li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  font-size: clamp(13px, 1.8vw, 15px);
+  text-align: left; /* Đảm bảo căn trái văn bản nếu xuống dòng */
+}
+
+.pricing-body ul li i {
+  margin-right: 10px;
+  font-size: 18px;
+  flex-shrink: 0; /* Ngăn icon bị co lại */
+}
+
+.pricing-body ul li span {
+  display: block;
+  text-align: left;
+}
+
+
+.pricing-body ul li .fa-check {
+  color: #2ecc71;
+}
+
+.pricing-body ul li .fa-xmark {
+  color: #e74c3c;
+}
+
+.pricing-footer,
+.pricing-footer1 {
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.pricing-footer button,
+.pricing-footer1 button {
+  padding: 10px 25px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pricing-footer button {
+  background: #24A6DF;
+  color: #fff;
+}
+
+.pricing-footer1 button {
+  background: #7FE25B;
+  color: #fff;
+}
+
+.pricing-footer button:hover {
+  background: #7FE25B;
+}
+
+.pricing-footer1 button:hover {
+  background: #24A6DF;
+}
+.review-steps {
+  max-width: 1200px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.review-steps h1 {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Auto layout, responsive */
+  gap: 30px;
+  justify-items: center; /* Center items horizontally */
+}
+
+.step {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  max-width: 350px;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.step img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.step-title {
+  color: #00aaff;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.step-description {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .step {
+    max-width: 100%;
+  }
+
+  .step img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-steps h1 {
+    font-size: 24px;
+  }
+
+  .step-title {
+    font-size: 18px;
+  }
+
+  .step-description {
+    font-size: 15px;
+  }
+
+  .step img {
+    width: 150px;
+  }
+}
+
+.section-wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Auto Layout cho Container */
+.container-wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid; /* Sử dụng grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Tự động điều chỉnh số cột */
+    gap: 40px;
+    align-items: center;
+    justify-items: center; /* Canh giữa các phần tử */
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Định dạng cho ảnh bên trái */
+.left-image {
+    text-align: center;
+}
+
+.left-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Nội dung bên phải */
+.right-content {
+    text-align: center;
+}
+
+.right-content h2 {
+    color: #333;
+    font-size: clamp(24px, 5vw, 32px); /* responsive */
+    margin-bottom: 20px;
+}
+
+.right-content p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.right-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.right-content ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Căn trái */
+}
+
+.right-content ul li::before {
+    content: "\f00c"; /* fa-check */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #7FE25B;
+    margin-right: 10px;
+}
+
+/* Nhấn mạnh phần tử với màu sắc */
+.highlight {
+    color: #24A6DF;
+    font-weight: bold;
+}
+
+/* Nút CTA */
+.cta-button {
+    display: inline-block;
+    background-color: #24A6DF;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #7FE25B;
+}
+
+/* Responsive: Tablet và mobile */
+@media (max-width: 768px) {
+    .container-wrapper {
+        grid-template-columns: 1fr; /* Một cột khi màn hình nhỏ */
+        text-align: center;
+    }
+
+    .right-content {
+        text-align: center;
+    }
+
+    .right-content ul li {
+        justify-content: center; /* Canh giữa các phần tử trong list */
+    }
+}
+/* Review Section */
+.review-section {
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+}
+
+.review-section h2 {
+    font-size: clamp(24px, 5vw, 32px);
+    color: #000;
+    margin-bottom: 30px;
+}
+
+/* Card Container - Sử dụng Flexbox để layout tự động */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+/* Card Item */
+.card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    flex: 1 1 calc(25% - 30px); /* 4 cards per row minus gap */
+    max-width: calc(25% - 30px);
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 20px;
+    color: #24A6DF;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Tablet - 2 cards per row */
+@media (max-width: 992px) {
+    .card {
+        flex: 1 1 calc(45% - 30px); /* 2 cards per row */
+        max-width: calc(45% - 30px);
+    }
+}
+
+/* Mobile - 1 card per row */
+@media (max-width: 600px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        flex: 1 1 90%;
+        max-width: 90%;
+    }
+}
+
+/* Container cho hai section */
+.container2 {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* FAQ và Form Section */
+.faq-section,
+.form-section {
+    flex: 1 1 48%;
+    min-width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Tiêu đề */
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+}
+
+/* Nội dung Paragraph */
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Accordion */
+.accordion-item {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background: #f1f5f9;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.accordion-header:hover {
+    background: #24A6DF;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.accordion-item.active .accordion-header {
+    background: #24A6DF;
+    color: #fff;
+}
+
+.accordion-body {
+    display: none;
+    padding: 15px 20px;
+    background: #fff;
+    color: #444;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.accordion-item.active .accordion-body {
+    display: block;
+}
+
+.icon {
+    font-size: 18px;
+}
+
+/* Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #1879a3;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.contact-form button {
+    padding: 12px;
+    background: #24A6DF;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.contact-form button:hover {
+    background: #7FE25B;
+    transform: scale(1.05);
+}
+
+/* Icon trong Accordion */
+.accordion-header .icon {
+    color: #7FE25B;
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .icon {
+    transform: rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-section,
+    .form-section {
+        flex: 1 1 100%;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: clamp(22px, 6vw, 28px);
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .contact-form button {
+        font-size: 16px;
+    }
+}
+/* Footer */
+.footer {
+    background-color: gray;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 40px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;  /* Đảm bảo không quá rộng */
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    color: white;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+    color: white;
+}
+
+.footer-column ul li a {
+text-decoration: none;
+    color: white    ;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.color-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #054278;
+    color: white;
+    border: 1px solid #ffffff70;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.p {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #ffffff30;
+    margin-top: 30px;
+    padding-top: 10px;
+    color: white;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .color-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
